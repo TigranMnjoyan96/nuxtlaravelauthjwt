@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\JWTAuth;
 
@@ -49,7 +50,7 @@ class RegisterController extends Controller
     }
 
 
-    public function register(Request $request)
+    public function register(Request  $request)
     {
         $validator = $this->validator($request->all());
 
@@ -82,7 +83,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 

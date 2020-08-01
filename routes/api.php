@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '/auth', ['middleware' => 'throttle: 20,5']], function() {
-    Route::get('/register', 'api\Auth\RegisterController@register');
+    Route::post('/register', 'api\Auth\RegisterController@register');
     Route::post('/login', 'api\Auth\RegisterController@login');
 });
